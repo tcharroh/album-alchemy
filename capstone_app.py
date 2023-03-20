@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+from evaluate import load
 
 st.title('welcome to album alchemy')
 st.markdown("here you will find a pitchfork album review and album artwork generator.") 
@@ -34,4 +36,30 @@ with col3:
 
 st.markdown('#')
 
-st.button('**create album alchemy**')
+st.button('**make album alchemy**')
+
+df = pd.read_csv('/Users/kevinborah/Desktop/MADS/pitchfork_reviews.csv')
+
+st.dataframe(df)
+
+# df = df[df.review.str.len() > 20]
+# df = df[df.review.str.len() < 10000] df = df[~df.review.str.contains('\n')]
+
+# single_column = df.score.map(str) + "\n" + df.genre + "\n" + df.review  
+# single_column.to_csv('score_genre_review.csv', header=False, index=False)
+
+#######################################
+# Run model given the above selections#
+#######################################
+
+#######################################
+######### Evaluate Model ##############
+#######################################
+# from https://huggingface.co/spaces/evaluate-measurement/perplexity
+# Use output generated from fine tuned model and measure perplexity compared to model
+
+perplexity = load('perplexity', module_type = 'measurement')
+
+results = perplexity.compute(data = input_texts, model_id = 'gpt2')
+
+print(round(results['mean_perplexity'],2))
