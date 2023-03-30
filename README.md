@@ -28,7 +28,7 @@ Before attempting to run anything be sure to run requirements.txt and install al
 ```
 pip install -r requirements.txt
 ```
-#### Get the data
+#### Get the Data
 
 ```
 gdown 1qRJl9d7exNMY_8vNDL4199ZOXGqhUU4a
