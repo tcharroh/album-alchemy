@@ -16,7 +16,7 @@ st.subheader('review generator')
 col1,col2,col3 = st.columns(3)
 with col1:  
     st.markdown('##### band name')
-    # help = 'enter a band name, fictional or real, up to 20 characters long'
+    # help = 'enter a band name, fictional or real, up to 30 characters long'
     band_name = st.text_input( '**band name**', max_chars = 30,label_visibility = 'collapsed',)
 
 with col2:
@@ -78,7 +78,7 @@ Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Senectus et netu
 today = date.today().strftime('%B %d, %Y')
 
 if create:
-    st.markdown(f'**GENRE:{band_name}  SCORE: {score}  LABEL: Album Alchemy Records  REVIEWED: {today}**')
+    st.markdown(f'**ARTIST: {band_name}  \n GENRE:{genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
     st.markdown('#')
     st.markdown(sample_output)
 
