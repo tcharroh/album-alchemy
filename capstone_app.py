@@ -77,8 +77,8 @@ Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Senectus et netu
 if create:
     st.text(sample_output)
 
-perplexity = load('perplexity', module_type = 'measurement')
+# perplexity = load('perplexity', module_type = 'measurement')
 
-results = perplexity.compute(data = input_texts, model_id = 'gpt2')
+# results = perplexity.compute(data = input_texts, model_id = 'gpt2')
 
-print(round(results['mean_perplexity'],2))
+# print(round(results['mean_perplexity'],2))
