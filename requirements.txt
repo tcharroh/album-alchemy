@@ -2,3 +2,4 @@ pandas
 evaluate
 torch
 transformers
+gdown
