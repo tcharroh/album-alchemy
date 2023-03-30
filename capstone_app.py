@@ -31,8 +31,9 @@ with col2:
     'Global'), label_visibility = 'collapsed')
 
 with col3:
-    st.markdown('##### score (example: 5.4)')
-    score = st.text_input('score',max_chars = 3, label_visibility = 'collapsed' ,) 
+    st.markdown('##### score')
+    # score = st.text_input('score',max_chars = 3, label_visibility = 'collapsed' ,) 
+    score = st.slider('score', min_value = 0, max_value = 10, value = 5.0, step = .1, label_visibility = 'collapsed')
 
 st.markdown('#')
 
