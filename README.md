@@ -7,6 +7,8 @@ Music reviews / music blogs are both fun to read and at times pretentious/snotty
 
 Using [Chat GPT-3](https://openai.com/blog/chatgpt) and prompt engineering with the help of [this dataset](https://components.one/datasets/pitchfork-reviews-dataset) we were able to generate [Pitchfork](https://pitchfork.com/reviews/albums/)-style album reviews for a band name of your choosing.
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://0-kbo-album-alchemy-capstone-app-0a12n5.streamlit.app/)
+
 ## Getting Started
 
 #### Clone
