@@ -7,7 +7,7 @@
 
 Music reviews / music blogs are both fun to read and at times pretentious/snotty and nonsensical, see grandiloquence.  We think it would be fun to create an interactive tool that produces equally nonsensical reviews about user-entered fictional albums. 
 
-Using [Chat GPT-3](https://openai.com/blog/chatgpt) and prompt engineering with the help of [this dataset](https://components.one/datasets/pitchfork-reviews-dataset) we were able to generate [Pitchfork](https://pitchfork.com/reviews/albums/)-style album reviews for a band name of your choosing.
+Using [Chat GPT-3](https://openai.com/blog/chatgpt) and prompt engineering with the help of [this dataset](https://components.one/datasets/pitchfork-reviews-dataset) created by Andrew Thompson we were able to generate [Pitchfork](https://pitchfork.com/reviews/albums/)-style album reviews for a band name of your choosing.
 
 
 ## Getting Started
