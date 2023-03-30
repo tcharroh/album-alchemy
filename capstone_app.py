@@ -38,7 +38,7 @@ st.markdown('#')
 
 create = st.button('**make album alchemy**')
 
-df = pd.read_csv('/Users/kevinborah/Desktop/MADS/pitchfork_reviews.csv')
+# df = pd.read_csv('/Users/kevinborah/Desktop/MADS/pitchfork_reviews.csv')
 
 
 
