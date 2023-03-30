@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from evaluate import load
+from datetime import date
 
 st.title('welcome to album alchemy')
 st.markdown("here you will find a pitchfork album review and album artwork generator.") 
@@ -74,8 +75,11 @@ Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Senectus et netu
 '''
 
 #if 'create' button above is clicked, produce output
+today = date.today().strftime('%B %d, %Y')
 
 if create:
+    st.markdown(f'**GENRE:{band_name}  SCORE: {score}  LABEL: Album Alchemy Records  REVIEWED: {today}**')
+    st.markdown('#')
     st.markdown(sample_output)
 
 # perplexity = load('perplexity', module_type = 'measurement')
@@ -83,3 +87,4 @@ if create:
 # results = perplexity.compute(data = input_texts, model_id = 'gpt2')
 
 # print(round(results['mean_perplexity'],2))
+
