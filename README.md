@@ -12,7 +12,7 @@ Using [Chat GPT-3](https://openai.com/blog/chatgpt) and prompt engineering with 
 
 ## Getting Started
 
-#### Clone
+#### Clone Repository
 
 To get a copy of our project running on your local machine, simply run the git clone command
 
@@ -21,10 +21,16 @@ git clone https://github.com/tcharroh/album-alchemy.git
 cd album-alchemy
 ```
 
-#### Requirements
+#### Install Requirements
 
 Before attempting to run anything be sure to run requirements.txt and install all dependencies
 
 ```
 pip install -r requirements.txt
 ```
+#### Get the data
+
+```
+gdown 1qRJl9d7exNMY_8vNDL4199ZOXGqhUU4a
+```
+
