@@ -75,7 +75,7 @@ Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Senectus et netu
 #if 'create' button above is clicked, produce output
 
 if create:
-    st.text(sample_output)
+    st.markdown(sample_output)
 
 # perplexity = load('perplexity', module_type = 'measurement')
 
