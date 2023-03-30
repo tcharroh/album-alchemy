@@ -9,6 +9,11 @@ Music reviews / music blogs are both fun to read and at times pretentious/snotty
 
 Using [OpenAI's GPT-3](https://openai.com/blog/chatgpt) and prompt engineering with the help of [this dataset](https://components.one/datasets/pitchfork-reviews-dataset) created by Andrew Thompson we were able to generate [Pitchfork](https://pitchfork.com/reviews/albums/)-style album reviews for a band name of your choosing.
 
+Our project was partly inspired by [this project](https://components.one/generators/pitchfork/) by Jules Becker at Components.  Her's is a fine-tuned GPT-2 model that generates text from a Pitchfork database.  We sought to improve on this idea by: 
+   1. Offering end-users the option of choosing their own band name and personalizing the review to that band
+   2. Using prompt engineering instead of fine-tuning to produce stronger reviews
+   3. Use GPT-3 instead of GPT-2
+
 
 ## Getting Started
 
