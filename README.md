@@ -7,9 +7,9 @@
 
 Music reviews / music blogs are both fun to read and at times pretentious/snotty and nonsensical, see grandiloquence.  We think it would be fun to create an interactive tool that produces equally nonsensical reviews about user-entered fictional albums. 
 
-Using [OpenAI's GPT-3](https://openai.com/blog/chatgpt) and prompt engineering with the help of [this dataset](https://components.one/datasets/pitchfork-reviews-dataset) created by Andrew Thompson we were able to generate [Pitchfork](https://pitchfork.com/reviews/albums/)-style album reviews for a band name of your choosing.
+Using [OpenAI's GPT-3](https://openai.com/blog/chatgpt) and prompt engineering with the help of [a dataset](https://components.one/datasets/pitchfork-reviews-dataset) created by Andrew Thompson we were able to generate [Pitchfork](https://pitchfork.com/reviews/albums/)-style album reviews for a band name of your choosing.
 
-Our project was partly inspired by [this project](https://components.one/generators/pitchfork/) by Jules Becker at Components.  Their's is a fine-tuned GPT-2 model that generates text from a Pitchfork database.  We sought to improve on this idea by: 
+Our project was partly inspired by [another project](https://components.one/generators/pitchfork/) by Jules Becker at Components.  Their's is a fine-tuned GPT-2 model that generates text from a Pitchfork database.  We sought to improve on this idea by: 
    1. Offering end-users the option of choosing their own band name and personalizing the review to that band
    2. Using prompt engineering instead of fine-tuning to produce stronger reviews
    3. Use GPT-3 instead of GPT-2
@@ -41,12 +41,12 @@ gdown 1qRJl9d7exNMY_8vNDL4199ZOXGqhUU4a
 
 #### Run the App
 
-To run your own version of the Streamlit app, click [here](https://0-kbo-album-alchemy-capstone-app-0a12n5.streamlit.app/)
+To run our version of the Streamlit app, click [here](https://0-kbo-album-alchemy-capstone-app-0a12n5.streamlit.app/)
 
 If you want to run your own local version run command
 
 ```
-streamlit run appname.py
+streamlit run capstone_app.py
 ```
 
 And if you want to deploy your own version, follow these [instructions](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app)
