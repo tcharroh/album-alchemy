@@ -78,9 +78,12 @@ Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Senectus et netu
 today = date.today().strftime('%B %d, %Y')
 
 if create:
-    st.markdown(f'**ARTIST: {band_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
-    st.markdown('#')
-    st.markdown(sample_output)
+    if band_name.replace(" ","") != '':    
+        st.markdown(f'**ARTIST: {band_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
+        st.markdown('#')
+        st.markdown(sample_output)
+    else:
+        st.error('please enter a valid band name')
 
 # perplexity = load('perplexity', module_type = 'measurement')
 
