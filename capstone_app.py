@@ -13,13 +13,17 @@ st.markdown('#')
 
 st.subheader('review generator')
 
-col1,col2,col3 = st.columns(3)
+col1,col2,col3,col4 = st.columns(4)
 with col1:  
     st.markdown('##### band name')
     # help = 'enter a band name, fictional or real, up to 30 characters long'
     band_name = st.text_input( '**band name**', max_chars = 30,label_visibility = 'collapsed',)
 
 with col2:
+    st.markdown('##### album name')
+    album_name = st.text_input('**album name**', max_chars = 30, label_visibility = 'collapsed')
+
+with col3:
     st.markdown('##### genre')
     genre = st.selectbox('**genre**',('Rock',
     'Electronic',
@@ -31,7 +35,7 @@ with col2:
     'Jazz',
     'Global'), label_visibility = 'collapsed')
 
-with col3:
+with col4:
     st.markdown('##### score')
     # score = st.text_input('score',max_chars = 3, label_visibility = 'collapsed' ,) 
     score = st.slider('score', min_value = 0.0, max_value = 10.0, value = 5.0, step = .1, label_visibility = 'collapsed')
@@ -52,6 +56,30 @@ create = st.button('**make album alchemy**')
 
 #######################################
 # Run model given the above selections#
+openai.api_type = "open_ai"
+openai.api_key = os.getenv("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")
+openai.api_base = "https://api.openai.com/v1"
+openai.api_version = None
+
+def chat_completion_request(messages, temperature=0, max_tokens=256, top_p=1.0):
+    response = openai.ChatCompletion.create(
+      model="gpt-3.5-turbo", 
+      messages=messages)
+    
+    return response['choices'][0]['message']['content']
+
+def generate_review(artist, album, genre, score):
+    messages = [
+        {"role": "system", "content": "You are an agent to help generate human-like reviews for music albums."},
+        {"role": "user", "content": f"Write a a long and insightful music review for the music album '{album}' by {artist}. The music genre is {genre} with a rating of {score} out of 10. The review must meet the following criteria:"},
+        {"role": "user", "content": "1. written in a conversational tone, with sophisticated sentence structure and language."},
+        {"role": "user", "content": "2. includes details about the band's history and the album's creation story."},
+        {"role": "user", "content": "3. includes personal experience and opinions."},
+        {"role": "user", "content": "Review:"},
+    ]
+    return chat_completion_request(messages, temperature=1.0, max_tokens=2048, top_p=1.0)
+
+
 #######################################
 
 #######################################
@@ -60,19 +88,7 @@ create = st.button('**make album alchemy**')
 # from https://huggingface.co/spaces/evaluate-measurement/perplexity
 # Use output generated from fine tuned model and measure perplexity compared to model
 
-sample_output = '''
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui vivamus arcu felis bibendum ut tristique et egestas quis. Nunc scelerisque viverra mauris in aliquam sem fringilla ut. Dignissim enim sit amet venenatis urna. Mauris augue neque gravida in. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. Ut tristique et egestas quis. Libero id faucibus nisl tincidunt eget nullam non nisi. Potenti nullam ac tortor vitae. Leo duis ut diam quam nulla porttitor massa id. Diam sit amet nisl suscipit adipiscing. Feugiat vivamus at augue eget. Neque aliquam vestibulum morbi blandit cursus risus. Nec feugiat nisl pretium fusce. Leo duis ut diam quam nulla porttitor massa.
-
-Tincidunt dui ut ornare lectus sit. Felis imperdiet proin fermentum leo. Velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio aenean sed adipiscing diam donec adipiscing. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor. Odio eu feugiat pretium nibh ipsum consequat nisl. Turpis egestas maecenas pharetra convallis. Facilisis volutpat est velit egestas dui id ornare. Nisi est sit amet facilisis magna etiam tempor orci. Lacus sed viverra tellus in hac habitasse platea dictumst. Ac tortor vitae purus faucibus. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Fringilla urna porttitor rhoncus dolor purus non. Aliquam etiam erat velit scelerisque in dictum non consectetur. Adipiscing enim eu turpis egestas pretium aenean pharetra. Adipiscing at in tellus integer feugiat scelerisque varius morbi enim.
-
-Consectetur lorem donec massa sapien. Auctor urna nunc id cursus metus aliquam eleifend. Vel fringilla est ullamcorper eget. Nulla facilisi morbi tempus iaculis. Arcu non sodales neque sodales ut etiam sit. Fermentum leo vel orci porta non pulvinar. Placerat in egestas erat imperdiet sed. Id venenatis a condimentum vitae sapien pellentesque. Viverra mauris in aliquam sem fringilla ut. Posuere urna nec tincidunt praesent semper feugiat nibh. Lorem mollis aliquam ut porttitor leo. Faucibus purus in massa tempor nec feugiat nisl. Tellus in metus vulputate eu scelerisque felis imperdiet. Neque volutpat ac tincidunt vitae semper quis lectus. Proin sagittis nisl rhoncus mattis.
-
-Imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor. Tortor at auctor urna nunc id. Platea dictumst vestibulum rhoncus est. Laoreet id donec ultrices tincidunt arcu non. In hac habitasse platea dictumst quisque. Et molestie ac feugiat sed lectus vestibulum. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Tellus cras adipiscing enim eu turpis egestas pretium aenean. Eu sem integer vitae justo eget magna fermentum iaculis eu. A arcu cursus vitae congue. Tempor id eu nisl nunc mi. Amet consectetur adipiscing elit pellentesque habitant morbi tristique. Cras adipiscing enim eu turpis egestas pretium aenean. Ultricies tristique nulla aliquet enim.
-
-Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Senectus et netus et malesuada. Sit amet risus nullam eget felis eget nunc. Ut sem nulla pharetra diam sit. In nulla posuere sollicitudin aliquam ultrices sagittis. Malesuada proin libero nunc consequat. Cursus turpis massa tincidunt dui ut ornare lectus. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. At tempor commodo ullamcorper a lacus vestibulum sed. Elementum tempus egestas sed sed risus pretium quam vulputate dignissim. Volutpat est velit egestas dui id ornare arcu odio.
-
-'''
+sample_output = generate_review(band_name, album_name, genre, score)
 
 #if 'create' button above is clicked, produce output
 today = date.today().strftime('%B %d, %Y')
