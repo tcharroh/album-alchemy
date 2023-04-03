@@ -4,7 +4,6 @@ torch
 transformers
 gdown
 datetime
-os
 openai
 numpy
 tqdm
