@@ -60,8 +60,8 @@ create = st.button('**make album alchemy**')
 #######################################
 # Run model given the above selections#
 openai.api_type = "open_ai"
-openai.organization_key = 'org-0skHZAjWNB79DqtyyXTKGDGI'
-openai.api_key = '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'
+openai.organization_key = st.secrets.openai_orgkey
+openai.api_key = st.secrets.openai_key
 openai.api_base = "https://api.openai.com/v1"
 openai.api_version = None
 
