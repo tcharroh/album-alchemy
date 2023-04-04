@@ -98,12 +98,12 @@ sample_output = generate_review(band_name, album_name, genre, score)
 today = date.today().strftime('%B %d, %Y')
 
 if create:
-    if band_name.replace(" ","") != '':    
-        st.markdown(f'**ARTIST: {band_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
+    if (band_name.replace(" ","") != '') | (album_name.replace(" ","") != ''):    
+        st.markdown(f'**ARTIST: {band_name}  \n ALBUM: {album_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
         st.markdown('#')
         st.markdown(sample_output)
     else:
-        st.error('please enter a valid band name')
+        st.error('please enter a valid band name and album name')
 
 # perplexity = load('perplexity', module_type = 'measurement')
 
