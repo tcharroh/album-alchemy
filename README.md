@@ -53,6 +53,8 @@ And if you want to deploy your own version, follow these [instructions](https://
 
 Be sure to set your OpenAI API key in the [secrets file of your app](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management)
 
+![Secrets](secrets_file_sample.png)
+
 
 ## Model Output
 
