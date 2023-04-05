@@ -16,35 +16,39 @@ st.markdown('#')
 
 st.subheader('review generator')
 
-col1,col2,col3,col4 = st.columns(4)
-with col1:  
-    st.markdown('##### band name')
-    # help = 'enter a band name, fictional or real, up to 30 characters long'
-    band_name = st.text_input( '**band name**', max_chars = 30,label_visibility = 'collapsed',)
+with st.form(key='model_inputs'):
+    # cols = st.beta_columns(5)
+    # for i, col in enumerate(cols):
+    #     col.selectbox(f'Make a Selection', ['click', 'or click'], key=i)
+    # submitted = st.form_submit_button('Submit')
 
-with col2:
-    st.markdown('##### album name')
-    album_name = st.text_input('**album name**', max_chars = 30, label_visibility = 'collapsed')
+    col1,col2,col3,col4 = st.columns(4)
+    with col1:  
+        st.markdown('##### band name')
+        # help = 'enter a band name, fictional or real, up to 30 characters long'
+        band_name = st.text_input( '**band name**', max_chars = 30,label_visibility = 'collapsed',)
 
-with col3:
-    st.markdown('##### genre')
-    genre = st.selectbox('**genre**',('Rock',
-    'Electronic',
-    'Rap',
-    'Experimental',
-    'Pop/R&B',
-    'Folk/Country',
-    'Metal',
-    'Jazz',
-    'Global'), label_visibility = 'collapsed')
+    with col2:
+        st.markdown('##### album name')
+        album_name = st.text_input('**album name**', max_chars = 30, label_visibility = 'collapsed')
 
-with col4:
-    st.markdown('##### score')
-    score = st.slider('score', min_value = 0.0, max_value = 10.0, value = 5.0, step = .1, label_visibility = 'collapsed')
+    with col3:
+        st.markdown('##### genre')
+        genre = st.selectbox('**genre**',('Rock',
+        'Electronic',
+        'Rap',
+        'Experimental',
+        'Pop/R&B',
+        'Folk/Country',
+        'Metal',
+        'Jazz',
+        'Global'), label_visibility = 'collapsed')
 
-st.markdown('#')
+    with col4:
+        st.markdown('##### score')
+        score = st.slider('score', min_value = 0.0, max_value = 10.0, value = 5.0, step = .1, label_visibility = 'collapsed')
 
-create = st.button('**make album alchemy**')
+    create = st.for_submit_button('**make album alchemy**')
 
 # if button is clicked (and band and album not blank), run model, produce output 
 
