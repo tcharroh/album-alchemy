@@ -97,7 +97,7 @@ if create:
         )
             
 
-            image_url = response['data'][0].text.strip()
+            image_url = response['data'][0]
             image_data = requests.get(image_url).content
             image = Image.open(BytesIO(image_data))
             # image.save('generated_image.jpg')
