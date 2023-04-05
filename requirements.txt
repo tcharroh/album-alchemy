@@ -7,3 +7,5 @@ datetime
 openai
 numpy
 tqdm
+requests
+pillow
