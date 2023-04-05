@@ -98,10 +98,10 @@ if create:
             
 
             image_url = response['data'][0]['url']
-            image_data = requests.get(image_url).content
-            image = Image.open(BytesIO(image_data))
+            # image_data = requests.get(image_url).content
+            # image = Image.open(BytesIO(image_data))
             # image.save('generated_image.jpg')
-            return image
+            return image_url
 
         image = generate_image_from_text(album_name,band_name,genre)
 
