@@ -43,13 +43,16 @@ gdown 1qRJl9d7exNMY_8vNDL4199ZOXGqhUU4a
 
 To run our version of the Streamlit app, click [here](https://0-kbo-album-alchemy-capstone-app-0a12n5.streamlit.app/)
 
-If you want to run your own local version run command
+If you want to run your own local version, run command
 
 ```
 streamlit run capstone_app.py
 ```
 
 And if you want to deploy your own version, follow these [instructions](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app)
+
+Be sure to set your OpenAI API key in the [secrets file of your app](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app/connect-to-data-sources/secrets-management)
+
 
 ## Model Output
 
