@@ -60,7 +60,7 @@ Be sure to set your OpenAI API key in the [secrets file of your app](https://doc
 
 #### Sample 
 
-![New Sample](sample.png)
+![Sample](sample.png)
 
 ### Evaluation
 
