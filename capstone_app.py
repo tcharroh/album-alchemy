@@ -125,7 +125,7 @@ if create:
             st.markdown(f'**ARTIST: {band_name}  \n ALBUM: {album_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
         
         with col2:
-            st.image(image,caption = '**ALBUM ARTWORK**')
+            st.image(image,caption = None)
 
         st.markdown('#')
         st.markdown(output)
