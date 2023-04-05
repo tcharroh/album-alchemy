@@ -48,7 +48,7 @@ with st.form(key='model_inputs'):
         st.markdown('##### score')
         score = st.slider('score', min_value = 0.0, max_value = 10.0, value = 5.0, step = .1, label_visibility = 'collapsed')
 
-    create = st.for_submit_button('**make album alchemy**')
+    create = st.form_submit_button('**make album alchemy**')
 
 # if button is clicked (and band and album not blank), run model, produce output 
 
