@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import openai
 import numpy as np
+import requests
+from PIL import Image
 from tqdm import tqdm
 from evaluate import load
 from datetime import date
@@ -55,7 +57,7 @@ with st.form(key='model_inputs'):
 if create:
     if (band_name.replace(" ","") != '') | (album_name.replace(" ","") != ''): 
 
-        # Run model given the above selections#
+        # get review given above input
 
         openai.api_type = "open_ai"
         openai.organization_key = st.secrets.openai_keys.org_key
@@ -83,9 +85,38 @@ if create:
         
         output = generate_review(band_name, album_name, genre, score)
 
+        # get image given above input
+
+        def generate_image_from_text(album,artist,genre):
+            openai.organization_key = st.secrets.openai_keys.org_key
+            openai.api_key = st.secrets.openai_keys.chat_key
+            response = openai.Image.create(
+            prompt="Create an album cover for the music album '{album}' by {artist}. Their music genre is {genre}"
+            n=1,
+            size="256x256"
+        )
+            
+
+            image_url = response.choices[0].text.strip()
+            image_data = requests.get(image_url).content
+            image = Image.open(BytesIO(image_data))
+            # image.save('generated_image.jpg')
+            return image
+
+        image = generate_image_from_text(album_name,band_name,genre)
+
+
+
         today = date.today().strftime('%B %d, %Y')
 
-        st.markdown(f'**ARTIST: {band_name}  \n ALBUM: {album_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
+        col1,col2 = st.columns(2)
+        
+        with col1:
+            st.markdown(f'**ARTIST: {band_name}  \n ALBUM: {album_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
+        
+        with col2:
+            st.image(image,caption = '**ALBUM ARTWORK**')
+
         st.markdown('#')
         st.markdown(output)
     else:
