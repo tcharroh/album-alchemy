@@ -1,5 +1,5 @@
 # Welcome to Album Alchemy
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://0-kbo-album-alchemy-capstone-app-0a12n5.streamlit.app/)
+[![Open in Streamlit](https://album-alchemy.streamlit.app/)
 
 
 <img width="160" alt="team-logo" src="https://user-images.githubusercontent.com/125633146/219563170-bf5c5073-2114-4cdb-9c51-d86149d96af3.png">
