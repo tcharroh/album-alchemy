@@ -91,7 +91,7 @@ if create:
             openai.organization_key = st.secrets.openai_keys.org_key
             openai.api_key = st.secrets.openai_keys.chat_key
             response = openai.Image.create(
-            prompt="Create an album cover for the music album '{album}' by {artist}. Their music genre is {genre}"
+            prompt="Create an album cover for the music album '{album}' by {artist}. Their music genre is {genre}",
             n=1,
             size="256x256"
         )
