@@ -19,10 +19,6 @@ st.markdown('#')
 st.subheader('review generator')
 
 with st.form(key='model_inputs'):
-    # cols = st.beta_columns(5)
-    # for i, col in enumerate(cols):
-    #     col.selectbox(f'Make a Selection', ['click', 'or click'], key=i)
-    # submitted = st.form_submit_button('Submit')
 
     col1,col2,col3,col4 = st.columns(4)
     with col1:  
@@ -108,11 +104,7 @@ if create:
             size="256x256"
         )
             
-
             image_url = response['data'][0]['url']
-            # image_data = requests.get(image_url).content
-            # image = Image.open(BytesIO(image_data))
-            # image.save('generated_image.jpg')
             return image_url
 
         image = generate_image_from_text()
