@@ -120,14 +120,14 @@ if create:
             
             with col2:
                 st.image(image,caption = None)
-                image_data = requests.get(image).content
-                with open('AA_artwork.png','rb') as file:
-                    btn = st.download_button(
-                            label="download artwork",
-                            data=file,
-                            file_name="AA_artwork.png",
-                            mime="image/png"
-        )
+        #         image_data = requests.get(image).content
+        #         with open('AA_artwork.png','rb') as file:
+        #             btn = st.download_button(
+        #                     label="download artwork",
+        #                     data=file,
+        #                     file_name="AA_artwork.png",
+        #                     mime="image/png"
+        # )
 
             st.markdown('#')
             st.markdown(output)
