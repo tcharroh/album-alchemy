@@ -114,6 +114,7 @@ if create:
         col1,col2 = st.columns(2)
         
         with col1:
+            st.markdown('#')
             st.markdown(f'**ARTIST: {band_name}  \n ALBUM: {album_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
         
         with col2:
