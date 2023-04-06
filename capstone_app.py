@@ -51,86 +51,87 @@ with st.form(key='model_inputs'):
 # if button is clicked (and band and album not blank), run model, produce output 
 
 if create:
-    if (band_name.replace(" ","") != '') | (album_name.replace(" ","") != ''): 
+    if (band_name.replace(" ","") != '') | (album_name.replace(" ","") != ''):
+        with st.spinner('reviewing...'): 
 
-        # get review given above input
+            # get review given above input
 
-        openai.api_type = "open_ai"
-        openai.organization_key = st.secrets.openai_keys.org_key
-        openai.api_key = st.secrets.openai_keys.chat_key
-        openai.api_base = "https://api.openai.com/v1"
-        openai.api_version = None
-
-        def chat_completion_request(messages, temperature=0, max_tokens=256, top_p=1.0):
-            response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo", 
-            messages=messages)
-            
-            return response['choices'][0]['message']['content']
-
-        def generate_review(artist, album, genre, score):
-            messages = [
-                {"role": "system", "content": "You are an agent to help generate human-like reviews for music albums."},
-                {"role": "user", "content": f"Write a a long and insightful music review for the music album '{album}' by {artist}. The music genre is {genre} with a rating of {score} out of 10. The review must meet the following criteria:"},
-                {"role": "user", "content": "1. written in a conversational tone, with sophisticated sentence structure and language."},
-                {"role": "user", "content": "2. includes details about the band's history and the album's creation story."},
-                {"role": "user", "content": "3. includes personal experience and opinions."},
-                {"role": "user", "content": "Review:"},
-            ]
-            return chat_completion_request(messages, temperature=1.0, max_tokens=2048, top_p=1.0)
-        
-        output = generate_review(band_name, album_name, genre, score)
-
-        def generate_artwork_descrip(artist, album, genre, score, review):
-            messages = [
-                {"role": "system", "content": "You are an agent to help generate creative descriptions of album artwork."},
-                {"role": "user", "content": f" Write a three sentence description of album artwork for the album '{album}' by {artist}. The band's music genre is {genre}. The description must meet the following criteria:"},
-                {"role": "user", "content": "1. Your response must begin with 'Create an album cover' "},
-                {"role": "user", "content": "2. uses descriptive language to explain images present in the artwork."},
-                {"role": "user", "content": "3. takes into account this recent album review for the band '{review}'."},
-            ]
-            return chat_completion_request(messages, temperature=1.0, max_tokens=1000, top_p=1.0)
-        
-        artwork_descrip = generate_artwork_descrip(band_name, album_name, genre, score,output)
-
-        # get image given above input
-
-        def generate_image_from_text():
+            openai.api_type = "open_ai"
             openai.organization_key = st.secrets.openai_keys.org_key
             openai.api_key = st.secrets.openai_keys.chat_key
-            response = openai.Image.create(
-            prompt=artwork_descrip,
-            n=1,
-            size="256x256"
-        )
+            openai.api_base = "https://api.openai.com/v1"
+            openai.api_version = None
+
+            def chat_completion_request(messages, temperature=0, max_tokens=256, top_p=1.0):
+                response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo", 
+                messages=messages)
+                
+                return response['choices'][0]['message']['content']
+
+            def generate_review(artist, album, genre, score):
+                messages = [
+                    {"role": "system", "content": "You are an agent to help generate human-like reviews for music albums."},
+                    {"role": "user", "content": f"Write a a long and insightful music review for the music album '{album}' by {artist}. The music genre is {genre} with a rating of {score} out of 10. The review must meet the following criteria:"},
+                    {"role": "user", "content": "1. written in a conversational tone, with sophisticated sentence structure and language."},
+                    {"role": "user", "content": "2. includes details about the band's history and the album's creation story."},
+                    {"role": "user", "content": "3. includes personal experience and opinions."},
+                    {"role": "user", "content": "Review:"},
+                ]
+                return chat_completion_request(messages, temperature=1.0, max_tokens=2048, top_p=1.0)
             
-            image_url = response['data'][0]['url']
-            return image_url
+            output = generate_review(band_name, album_name, genre, score)
 
-        image = generate_image_from_text()
+            def generate_artwork_descrip(artist, album, genre, score, review):
+                messages = [
+                    {"role": "system", "content": "You are an agent to help generate creative descriptions of album artwork."},
+                    {"role": "user", "content": f" Write a three sentence description of album artwork for the album '{album}' by {artist}. The band's music genre is {genre}. The description must meet the following criteria:"},
+                    {"role": "user", "content": "1. Your response must begin with 'Create an album cover' "},
+                    {"role": "user", "content": "2. uses descriptive language to explain images present in the artwork."},
+                    {"role": "user", "content": "3. takes into account this recent album review for the band '{review}'."},
+                ]
+                return chat_completion_request(messages, temperature=1.0, max_tokens=1000, top_p=1.0)
+            
+            artwork_descrip = generate_artwork_descrip(band_name, album_name, genre, score,output)
 
-        today = date.today().strftime('%B %d, %Y')
+            # get image given above input
 
-        col1,col2 = st.columns(2)
-        
-        with col1:
+            def generate_image_from_text():
+                openai.organization_key = st.secrets.openai_keys.org_key
+                openai.api_key = st.secrets.openai_keys.chat_key
+                response = openai.Image.create(
+                prompt=artwork_descrip,
+                n=1,
+                size="256x256"
+            )
+                
+                image_url = response['data'][0]['url']
+                return image_url
+
+            image = generate_image_from_text()
+
+            today = date.today().strftime('%B %d, %Y')
+
+            col1,col2 = st.columns(2)
+            
+            with col1:
+                st.markdown('#')
+                st.markdown(f'**ARTIST: {band_name}  \n ALBUM: {album_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
+            
+            with col2:
+                st.image(image,caption = None)
+                image_data = requests.get(image).content
+                if image_data.status_code:
+                    with open('AA_artwork.png','rb') as file:
+                        btn = st.download_button(
+                                label="download artwork",
+                                data=file,
+                                file_name="AA_artwork.png",
+                                mime="image/png"
+            )
+
             st.markdown('#')
-            st.markdown(f'**ARTIST: {band_name}  \n ALBUM: {album_name}  \n GENRE: {genre}  \n SCORE: {score}  \n LABEL: Album Alchemy Records  \n REVIEWED: {today}**')
-        
-        with col2:
-            st.image(image,caption = None)
-            image_data = requests.get(image).content
-            if image_data.status_code:
-                with open('AA_artwork.png','rb') as file:
-                    btn = st.download_button(
-                            label="download artwork",
-                            data=file,
-                            file_name="AA_artwork.png",
-                            mime="image/png"
-          )
-
-        st.markdown('#')
-        st.markdown(output)
+            st.markdown(output)
     else:
         st.error('please enter a valid band and album name')
 
