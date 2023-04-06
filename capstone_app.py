@@ -119,6 +119,12 @@ if create:
         
         with col2:
             st.image(image,caption = None)
+            btn = st.download_button(
+                    label="download artwork",
+                    data=image,
+                    file_name="AA_artwork.png",
+                    mime="image/png"
+          )
 
         st.markdown('#')
         st.markdown(output)
