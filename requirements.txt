@@ -9,3 +9,4 @@ numpy
 tqdm
 requests
 pillow
+overlapy
