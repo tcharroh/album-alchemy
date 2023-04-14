@@ -4,15 +4,17 @@
 <!-- <img width="160" alt="team-logo" src="https://user-images.githubusercontent.com/125633146/219563170-bf5c5073-2114-4cdb-9c51-d86149d96af3.png">
 [Image generated using Stable Diffusion] -->
 
-Music reviews / music blogs are both fun to read and at times pretentious/snotty and nonsensical, see grandiloquence.  We think it would be fun to create an interactive tool that produces equally nonsensical reviews about user-entered fictional albums and uses said nonsensical reviews to generate artwork for the album.
+> Strictly considered, writing about music is as illogical as singing about economics. All the other arts can be talked about in the terms of ordinary life and experience. A poem, a statue, a painting or a play is a representation of somebody or something, and can be measurably described (the purely aesthetic values aside) by describing what it represents. - "The Unseen World". The New Republic. Vol. 14. February 9, 1918
 
-Using [OpenAI's GPT-3](https://openai.com/blog/chatgpt) and prompt engineering with the help of [a dataset](https://components.one/datasets/pitchfork-reviews-dataset) created by Andrew Thompson we are able to generate [Pitchfork](https://pitchfork.com/reviews/albums/)-style album reviews for a band name of your choosing. 
+Though people have been writing about music since Plato, the practice of musical criticism, as we have come to know it emerged in the late eighteenth and early nineteenth centuries. Roughly two-hundred years later with the arrival of the internet, musical criticisms moved online to personal websites and blogs. By the early 2000s, one of those sites, Pitchfork, had amassed a large following and increased cultural currency.
 
-Our project was partly inspired by [another project](https://components.one/generators/pitchfork/) by Jules Becker at Components.  Their's is a fine-tuned GPT-2 model that generates text from a Pitchfork database.  We sought to improve on this idea by: 
-   1. Use GPT-3 instead of GPT-2 
-   2. Offering end-users the option of choosing their own band name and personalizing the review to that band
-   3. Use GPT-3 and Dall-E 2 to generate album artwork
-   4. Using prompt engineering instead of fine-tuning to generate stronger reviews 
+Though musical criticisms can be fun to read and may shed light on influences and cultural context, they can also be filled with over-the-top, artistically pretentious language that attempts to make objective statements on what is ultimately a subjective issue. 
+
+With this context, our team set out to leverage existing large language models to generate reviews that look as closely to Pitchfork’s human written reviews as possible.  We wanted to build something fun for users to interact with that would give us more hands-on experience incorporating new technologies into our project.  We also wanted to build off of preexisting work on the same topic, specifically [this](https://components.one/documentation/gpt-2-pitchfork-generator-tutorial) Pitchfork review generator created by Jules Becker with Components.  We improved on their concept by:
+   1. Using [GPT-3](https://openai.com/blog/chatgpt) instead of GPT-2
+   2. Offering end-users the option to choose their own band name and personalize their review to that band
+   3. Using GPT-3 and Dall-E 2 to generate album artwork
+   4. Using prompt engineering instead of fine-tuning to generate reviews more similar to real reviews
 
 ## Getting Started
 
@@ -34,6 +36,22 @@ pip install -r requirements.txt
 ```
 
 #### Get the Data
+
+The base Pitchfork reviews [dataset](https://components.one/datasets/pitchfork-reviews-dataset) was scraped by Andrew Thompson for reviews written between 1999-2021. The dataset includes the following attributes:
+
+   - Artist - The artist/band’s name
+   - Album	- The name of the album
+   - Genre	- The musical genre of the album
+   - Score	- A rating of 1-10 assigned to the album by human reviewers (1-low, 10-high)
+   - Date - Date of the album release
+   - Author	- The human reviewer of the album
+   - Role - The author’s associate with Pitchfork 
+   - Review - The text containing the review	
+   - Link - Link to the review on Pitchfork’s website
+   - Label - The musical label associated with the album and the artist
+   - Release_year - The year of the album release
+
+The dataset is too large to store on GitHub but can be added to the current working directory with the command:
 
 ```
 gdown 1qRJl9d7exNMY_8vNDL4199ZOXGqhUU4a
