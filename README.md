@@ -4,7 +4,7 @@
 <!-- <img width="160" alt="team-logo" src="https://user-images.githubusercontent.com/125633146/219563170-bf5c5073-2114-4cdb-9c51-d86149d96af3.png">
 [Image generated using Stable Diffusion] -->
 
-> Strictly considered, writing about music is as illogical as singing about economics. All the other arts can be talked about in the terms of ordinary life and experience. A poem, a statue, a painting or a play is a representation of somebody or something, and can be measurably described (the purely aesthetic values aside) by describing what it represents. - "The Unseen World". The New Republic. Vol. 14. February 9, 1918
+> "Strictly considered, writing about music is as illogical as singing about economics. All the other arts can be talked about in the terms of ordinary life and experience. A poem, a statue, a painting or a play is a representation of somebody or something, and can be measurably described (the purely aesthetic values aside) by describing what it represents." - "The Unseen World". The New Republic. Vol. 14. February 9, 1918
 
 Though people have been writing about music since Plato, the practice of musical criticism, as we have come to know it emerged in the late eighteenth and early nineteenth centuries. Roughly two-hundred years later with the arrival of the internet, musical criticisms moved online to personal websites and blogs. By the early 2000s, one of those sites, Pitchfork, had amassed a large following and increased cultural currency.
 
