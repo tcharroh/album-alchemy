@@ -79,7 +79,7 @@ Be sure to set your OpenAI API key in the [secrets file of your app](https://doc
 ![Sample](sample_aa.png)
 
 
-## Run the notebook
+## Run the Review Notebook
 #### Set OpenAI as Environment Variable
 You can follow these [steps](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html#:~:text=After%20%24Env%20%2C%20add%20a%20colon,you%20start%20from%20this%20shell.) to set your an environment variable named `OPENAI_API_KEY` with the value being your API key.
 
