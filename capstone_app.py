@@ -11,8 +11,6 @@ from datetime import date
 st.set_page_config(page_title="album alchemy", page_icon=None)
 st.sidebar.title('')
 
-st.sidebar.header("album alchemy")
-
 st.title('welcome to album alchemy')
 st.markdown("here you will find a pitchfork-like album review and album artwork generator.") 
 st.markdown("all we need from you is your band name, your band's genre, and a score for the album.")
