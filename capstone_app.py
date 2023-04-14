@@ -10,7 +10,7 @@ from datetime import date
 
 st.sidebar.title('pages')
 
-st.set_page_config(page_title="make_album_alchemy", page_icon=None)
+# st.set_page_config(page_title="make_album_alchemy", page_icon=None)
 st.sidebar.header("make album alchemy")
 
 st.title('welcome to album alchemy')
