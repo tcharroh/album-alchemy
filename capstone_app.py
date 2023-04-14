@@ -8,6 +8,8 @@ from tqdm import tqdm
 from evaluate import load
 from datetime import date
 
+st.sidebar.title('pages')
+
 st.title('welcome to album alchemy')
 st.markdown("here you will find a pitchfork-like album review and album artwork generator.") 
 st.markdown("all we need from you is your band name, your band's genre, and a score for the album.")
