@@ -8,10 +8,10 @@ from tqdm import tqdm
 from evaluate import load
 from datetime import date
 
-st.set_page_config(page_title="album_alchemy", page_icon=None)
+st.set_page_config(page_title="album alchemy", page_icon=None)
 st.sidebar.title('')
 
-st.sidebar.header("make album alchemy")
+st.sidebar.header("album alchemy")
 
 st.title('welcome to album alchemy')
 st.markdown("here you will find a pitchfork-like album review and album artwork generator.") 
