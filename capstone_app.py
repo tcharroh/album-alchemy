@@ -8,9 +8,9 @@ from tqdm import tqdm
 from evaluate import load
 from datetime import date
 
-st.sidebar.title('pages')
+st.set_page_config(page_title="album_alchemy", page_icon=None)
+st.sidebar.title('')
 
-# st.set_page_config(page_title="make_album_alchemy", page_icon=None)
 st.sidebar.header("make album alchemy")
 
 st.title('welcome to album alchemy')
