@@ -19,14 +19,10 @@ Though musical criticisms can be fun to read and may shed light on influences an
 # What We Did
 
 With the above context in mind, our team created Album Alchemy, a StreamLit-hosted app where users enter a band name, album name (either fictional or real), select a genre and album score (1-10) and request album alchemy.  The model outputs an AI generated album review and artwork.
-
-
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![Figure 1](images/figure_1.png "image_tooltip")
-
+"""
+# ![Figure 1](images/figure_1.png "image_tooltip")
+st.image(images/figure_1.png, caption = None)
+"""
 
 **Figure 1. Sample Album Alchemy Output**
 
