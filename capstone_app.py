@@ -85,13 +85,19 @@ if create:
             
             output = generate_review(band_name, album_name, genre, score)
 
+            # def generate_artwork_descrip(artist, album, genre, score, review):
+            #     messages = [
+            #         {"role": "system", "content": "You are an agent to help generate creative descriptions of album artwork."},
+            #         {"role": "user", "content": f" Write a three sentence description of album artwork for the album '{album}' by {artist}. The band's music genre is {genre}. The description must meet the following criteria:"},
+            #         {"role": "user", "content": "1. Your response must begin with 'Create an album cover' "},
+            #         {"role": "user", "content": "2. uses descriptive language to explain images present in the artwork."},
+            #         {"role": "user", "content": "3. takes into account this recent album review for the band '{review}'."},
+            #     ]
+            #     return chat_completion_request(messages, temperature=1.0, max_tokens=1000, top_p=1.0)
+            
             def generate_artwork_descrip(artist, album, genre, score, review):
                 messages = [
-                    {"role": "system", "content": "You are an agent to help generate creative descriptions of album artwork."},
-                    {"role": "user", "content": f" Write a three sentence description of album artwork for the album '{album}' by {artist}. The band's music genre is {genre}. The description must meet the following criteria:"},
-                    {"role": "user", "content": "1. Your response must begin with 'Create an album cover' "},
-                    {"role": "user", "content": "2. uses descriptive language to explain images present in the artwork."},
-                    {"role": "user", "content": "3. takes into account this recent album review for the band '{review}'."},
+                    {"role": "user", "content": f" Write a three sentence description of album artwork for the album '{album}' by {artist}. The band's music genre is {genre}."}
                 ]
                 return chat_completion_request(messages, temperature=1.0, max_tokens=1000, top_p=1.0)
             
