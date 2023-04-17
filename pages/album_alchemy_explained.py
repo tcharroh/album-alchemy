@@ -202,8 +202,9 @@ Detecting matches at a span of 2 are less concerning for long documents, think o
 We then used cosine similarity to evaluate how similar are two documents in terms of their content. The score ranges from 0 to 1, the higher the score the more similar they are. 
 
 We calculated the cosine similarity of 500 Pitchfork reviews and 500 GPT generated reviews for the same Album, Artist, Genre and Rating. Using the _[openai.embeddings_utils](https://github.com/openai/openai-python/blob/main/openai/embeddings_utils.py) _module, we converted reviews to multidimensional vectors, and estimated the cosine similarity between them using the following formula: 
+""")  
 
-Similarity""")  st.latex(r''' \begin{equation}
+st.latex(r''' \begin{equation}
 \cos ({\bf t},{\bf e})= {{\bf t} {\bf e} \over \|{\bf t}\| \|{\bf e}\|} = \frac{ \sum_{i=1}^{n}{{\bf t}_i{\bf e}_i} }{ \sqrt{\sum_{i=1}^{n}{({\bf t}_i)^2}} \sqrt{\sum_{i=1}^{n}{({\bf e}_i)^2}} }
 \end{equation} ''')
 
