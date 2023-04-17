@@ -85,42 +85,33 @@ if create:
             
             output = generate_review(band_name, album_name, genre, score)
 
-            # def generate_artwork_descrip(artist, album, genre, score, review):
-            #     messages = [
-            #         {"role": "system", "content": "You are an agent to help generate creative descriptions of album artwork."},
-            #         {"role": "user", "content": f" Write a three sentence description of album artwork for the album '{album}' by {artist}. The band's music genre is {genre}. The description must meet the following criteria:"},
-            #         {"role": "user", "content": "1. Your response must begin with 'Create an album cover' "},
-            #         {"role": "user", "content": "2. uses descriptive language to explain images present in the artwork."},
-            #         {"role": "user", "content": "3. takes into account this recent album review for the band '{review}'."},
-            #     ]
-            #     return chat_completion_request(messages, temperature=1.0, max_tokens=1000, top_p=1.0)
+            def generate_artwork_descrip(artist, album, genre, score, review):
+                messages = [
+                    {"role": "system", "content": "You are an agent to help generate creative descriptions of album artwork."},
+                    {"role": "user", "content": f" Write a three sentence description of album artwork for the album '{album}' by {artist}. The band's music genre is {genre}. The description must meet the following criteria:"},
+                    {"role": "user", "content": "1. Your response must begin with 'Create an album cover' "},
+                    {"role": "user", "content": "2. uses descriptive language to explain images present in the artwork."},
+                    {"role": "user", "content": "3. takes into account this recent album review for the band '{review}'."},
+                ]
+                return chat_completion_request(messages, temperature=1.0, max_tokens=1000, top_p=1.0)
             
-            # artwork_descrip = generate_artwork_descrip(band_name, album_name, genre, score,output)
+            artwork_descrip = generate_artwork_descrip(band_name, album_name, genre, score,output)
 
             # get image given above input
 
-            # def generate_image_from_text():
-            #     openai.organization_key = st.secrets.openai_keys.org_key
-            #     openai.api_key = st.secrets.openai_keys.chat_key
-            #     response = openai.Image.create(
-            #     prompt=artwork_descrip,
-            #     n=1,
-            #     size="256x256"
-            # )
-                
-            def generate_image_from_text(band_name, album_name, genre, score):
+            def generate_image_from_text():
                 openai.organization_key = st.secrets.openai_keys.org_key
                 openai.api_key = st.secrets.openai_keys.chat_key
                 response = openai.Image.create(
-                prompt="create album artwork for the album '{album}' by {artist}. The band's music genre is {genre}.",
+                prompt=artwork_descrip,
                 n=1,
                 size="256x256"
-            )    
+            )
                 
                 image_url = response['data'][0]['url']
                 return image_url
 
-            image = generate_image_from_text(band_name, album_name, genre, score)
+            image = generate_image_from_text()
 
             today = date.today().strftime('%B %d, %Y')
 
