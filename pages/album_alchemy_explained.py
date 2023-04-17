@@ -25,7 +25,7 @@ With the above context in mind, our team created Album Alchemy, a StreamLit-host
 <p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image1.png "image_tooltip")
+![Figure 1](images/figure_1.png "image_tooltip")
 
 
 **Figure 1. Sample Album Alchemy Output**
@@ -437,8 +437,6 @@ We initially explored the use of the Stable Diffusion model (Rombach and Blattma
 
     Thompson, Andrew. “20783 Pitchfork Reviews.” _Components_, 8 February 2019, https://components.one/datasets/pitchfork-reviews-dataset. Accessed 16 April 2023.
 
-
-    .
 
 
 """
