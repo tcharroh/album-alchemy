@@ -129,7 +129,7 @@ if create:
     else:
         st.error('please enter a valid band and album name')
 
-st.markdown("[![Star](<https://img.shields.io/github/stars/0-kbo/album-alchemy?style=social)](https://github.com/0-kbo/album-alchemy/tree/main)")
+st.write("[![Star](<https://img.shields.io/github/stars/0-kbo/album-alchemy?style=social)](https://github.com/0-kbo/album-alchemy/tree/main)")
 
 # """[![Star](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://gitHub.com/devangdayal/Medium)"""
 
