@@ -120,7 +120,7 @@ if create:
                 image_url = response['data'][0]['url']
                 return image_url
 
-            image = generate_image_from_text()
+            image = generate_image_from_text(band_name, album_name, genre, score)
 
             today = date.today().strftime('%B %d, %Y')
 
