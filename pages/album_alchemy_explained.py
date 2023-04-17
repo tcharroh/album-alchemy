@@ -2,15 +2,17 @@ import streamlit as st
 
 st.set_page_config(page_title="how_we_did_it", page_icon=None)
 
-st.write("[![Star](<https://img.shields.io/github/stars/>0-kbo/album-alchemy.svg?logo=github&style=social)](<https://gitHub.com/>0-kbo/album-alchemy)")
-
 st.markdown(
 
 """
 
 
 # Project statement
+""")
 
+st.write("[![Star](<https://img.shields.io/github/stars/>0-kbo/album-alchemy/tree/main.svg?logo=github&style=social)](<https://gitHub.com/>0-kbo/album-alchemy/tree/main)")
+
+st.markdown("""
 >“Strictly considered, writing about music is as illogical as singing about economics. All the other arts can be talked about in the terms of ordinary life and experience. A poem, a statue, a painting or a play is a representation of somebody or something, and can be measurably described (the purely aesthetic values aside) by describing what it represents.” (K 63)
 
 Though people have been writing about music since Plato, the practice of musical criticism, as we have come to know it emerged in the late eighteenth and early nineteenth centuries. (Kivy 247) With the arrival of the internet roughly two-hundred years later, musical criticisms moved online to personal websites and blogs. By the early 2000s, one such musical criticism website, Pitchfork, had amassed a large following and increased cultural currency.
