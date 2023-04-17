@@ -2,6 +2,8 @@ import streamlit as st
 
 st.set_page_config(page_title="how_we_did_it", page_icon=None)
 
+st.toc.generate()
+
 st.markdown(
 
 """
