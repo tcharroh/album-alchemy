@@ -9,7 +9,7 @@ st.markdown(
 
 # Project statement
 
->“Strictly considered, writing about music is as illogical as singing about economics. All the other arts can be talked about in the terms of ordinary life and experience. A poem, a statue, a painting or a play is a representation of somebody or something, and can be measurably described (the purely aesthetic values aside) by describing what it represents.” _(K 63)
+>“Strictly considered, writing about music is as illogical as singing about economics. All the other arts can be talked about in the terms of ordinary life and experience. A poem, a statue, a painting or a play is a representation of somebody or something, and can be measurably described (the purely aesthetic values aside) by describing what it represents.” (K 63)
 
 Though people have been writing about music since Plato, the practice of musical criticism, as we have come to know it emerged in the late eighteenth and early nineteenth centuries. (Kivy 247) With the arrival of the internet roughly two-hundred years later, musical criticisms moved online to personal websites and blogs. By the early 2000s, one such musical criticism website, Pitchfork, had amassed a large following and increased cultural currency.
 
@@ -37,12 +37,10 @@ GPT-3.5, or Generative Pre-trained Transformer 3.5 (Brown), is a language model 
 
 For review generation, we used GPT as both a review generation model and prompt-tuning evaluation model. Using the fine-tuned prompts, the model was able to generate human-like Pitchfork-style reviews given the following limited inputs:
 
-
-
-    * Artist
-    * Album Name
-    * Genre
-    * Rating of the Album (scale 1-10)
+* Artist
+* Album Name
+* Genre
+* Rating of the Album (scale 1-10)
 
 For album art generation, we created a two-layer model: we leveraged GPT to generate descriptions of album artwork, which was then ingested into OpenAI’s DALL-E 2 text to image to generate the final album art. 
 
@@ -51,19 +49,17 @@ For album art generation, we created a two-layer model: we leveraged GPT to gene
 
 The base Pitchfork reviews was scraped by Andrew Thompson (Thompson) for reviews written between 1999-2021. The dataset includes the following attributes:
 
-
-
-    * Artist - The artist/band’s name
-    * Album	- The name of the album
-    * Genre	- The musical genre of the album
-    * Score	- A rating of 1-10 assigned to the album by human reviewers (1-low, 10-high)
-    * Date - Date of the album release
-    * Author	- The human reviewer of the album
-    * Role - The author’s associate with Pitchfork 
-    * Review - The text containing the review	
-    * Link - Link to the review on Pitchfork’s website
-    * Label - The musical label associated with the album and the artist
-    * Release_year - The year of the album release
+* Artist - The artist/band’s name
+* Album	- The name of the album
+* Genre	- The musical genre of the album
+* Score	- A rating of 1-10 assigned to the album by human reviewers (1-low, 10-high)
+* Date - Date of the album release
+* Author	- The human reviewer of the album
+* Role - The author’s associate with Pitchfork 
+* Review - The text containing the review	
+* Link - Link to the review on Pitchfork’s website
+* Label - The musical label associated with the album and the artist
+* Release_year - The year of the album release
 
 A randomized sample of 500 reviews from this dataset were used for this analysis due to OpenAI rate limitations and the cost associated with each API request. The following attributes from this original dataset were incorporated into the prompt provided to the GPT model for generating its own review - Artist, Album, Score and Genre. 
 
@@ -114,7 +110,6 @@ We set the baseline using the simple prompt’s false positive rate and measured
 ```
     You are an agent to help generate human-like reviews for music albums
 
-
     Write a long and insightful music review for the music album '{album}' by {artist}. The music genre is {genre} with a rating of {score} out of 10. The review must meet the following criteria:
 
     1. Written in a conversational tone, with sophisticated sentence structure and language.
@@ -138,11 +133,11 @@ Album - The Early Years 1965-1972
 
 Source - GPT
 
-> When it comes to Pink Floyd, it's hard not to be a little bit in awe of what they've accomplished. With over five decades in the music industry and over 250 million records sold, they're a band that has made an indelible mark on the rock genre. That's why I was particularly excited to listen to "The Early Years 1965-1972," a retrospective compilation that covers the formative years of the group.
+> "When it comes to Pink Floyd, it's hard not to be a little bit in awe of what they've accomplished. With over five decades in the music industry and over 250 million records sold, they're a band that has made an indelible mark on the rock genre. That's why I was particularly excited to listen to "The Early Years 1965-1972," a retrospective compilation that covers the formative years of the group.
 
 This album is an absolute treasure trove for any Pink Floyd fan, particularly those who are invested in the early days of the band. It's impressive to see how Pink Floyd evolved in just a few short years, transforming from a relatively straightforward blues-rock outfit to the avant-garde experimentalists that we all know and love. And let's not forget about the sheer quality of the music. Even during this early period, it's clear that Pink Floyd had a level of songwriting sophistication that was ahead of its time.
-
-But before I dive into the music itself, let's talk a little bit about the band's history. Pink Floyd got its start in 1965, when guitarist Syd Barrett, bassist Roger Waters, drummer Nick Mason, and keyboardist Richard Wright started playing around the London music scene. The band's early years were marked by a series of singles and live shows, but it wasn't until 1967 that the band truly hit its stride with the release of "The Piper at the Gates of Dawn," an album that showcased Barrett's unique songwriting abilities and experimental sensibilities.
+ 
+But before I dive into the music itself, let's talk a little bit about the band's history. Pink Floyd got its start in 1965, when guitarist Syd Barrett, bassist Roger Waters, drummer Nick Mason, and keyboardist Richard Wright started playing around the London music scene. The band's early years were marked by a series of singles and live shows, but it wasn't until 1967 that the band truly hit its stride with the release of "The Piper at the Gates of Dawn," an album that showcased Barrett's unique songwriting abilities and experimental sensibilities."
 
 
 """)
@@ -190,7 +185,7 @@ st.image('images/figure_3.png',caption = None)
 st.markdown(
 
 """
-**Figure 3. Number of matches for different n-gram size
+**Figure 3. Number of matches for different n-gram size**
 
 Figure 3 plots the number of matches (y) against different n-gram sizes (x). At a span of 2, there were many matches between GPT-generated reviews and real pitchfork reviews. The number of matches dropped sharply once we increased to a span of 3, and dropped to 0 matches at a span of 4 and beyond. 
 
@@ -210,7 +205,7 @@ st.image('images/figure_4.png',caption = None)
 
 st.markdown(
 """
-**Figure 4. Distribution of the cosine similarities between Pitchfork-review and GPT-generated review
+**Figure 4. Distribution of the cosine similarities between Pitchfork-review and GPT-generated review**
 
 Figure 4 shows the distribution of the cosine similarities between the real Pitchfork review and GPT-generated reviews. The similarities ranged between 0.80 and 0.98, with a median of 0.92. This score suggests that the GPT-generated reviews and the real Pitchfork reviews were highly similar in terms of content. Based on the memorization metric and cosine similarity score, the GPT model was able to output high-quality reviews that have similar contents to the real review, while not directly replicating the real one.
 
@@ -223,22 +218,22 @@ We used TSNE (Maaten 86) to help visualize the differences in the GPT-generated 
 st.image('images/figure_5.png',caption = None)
 
 st.markdown("""
-**Figure 5. TSNE visualization of GPT vs Human written reviews
+**Figure 5. TSNE visualization of GPT vs Human written reviews**
 
 
 # What’s Next?
 
 At the outset of this journey, our team set out to leverage existing large language models to generate reviews that look as closely to Pitchfork’s human written reviews as possible. We wanted to build something fun for users to interact with that would give us more hands-on experience incorporating new technologies into live products. We also wanted to build off of preexisting work on the same topic, specifically Pitchfork review generator created by Jules Becker (Becker) with Components. In the end, we improved on their concept by:
 
-    1. Using GPT-3.5 instead of GPT-2
-    2. Offering end-users the option to choose their own band name and personalize their review to that band
-    3. Using GPT and Dall-E 2 to generate album artwork
-    4. Using prompt engineering instead of fine-tuning to generate reviews more similar to real reviews 
+1. Using GPT-3.5 instead of GPT-2
+2. Offering end-users the option to choose their own band name and personalize their review to that band
+3. Using GPT and Dall-E 2 to generate album artwork
+4. Using prompt engineering instead of fine-tuning to generate reviews more similar to real reviews 
 
 There are still many interesting work that could be done for our projects:
 
-    1. Our current fine-tuned prompt has a false positive rate of 53%, which means it is able to trick the rater to believe it is written by a human 53% of the time. We can continue to explore more sophisticated prompts that could “activate” GPT’s more human-like writing style.
-    2. Our memorization metric only compared the n-gram overlaps between the GPT-generated review and the human written Pitchfork review of the same Artist, Album, Score and Genre. We can extend the evaluation to GPT-generated reviews against all Pitchfork reviews.
+1. Our current fine-tuned prompt has a false positive rate of 53%, which means it is able to trick the rater to believe it is written by a human 53% of the time. We can continue to explore more sophisticated prompts that could “activate” GPT’s more human-like writing style.
+2. Our memorization metric only compared the n-gram overlaps between the GPT-generated review and the human written Pitchfork review of the same Artist, Album, Score and Genre. We can extend the evaluation to GPT-generated reviews against all Pitchfork reviews.
 
 Though we don’t anticipate our project to send ripples into the musical criticism industry, we have demonstrated that GPT has the potential to write reviews that are indistinguishable from human written reviews and acknowledge the far-reaching impacts of such a reality.  The music industry will be forced to reckon with such far-reaching impact.  Everything from song writing, composition and album artwork has the potential to be disrupted in a significant way. Music critics, who also play a critical role in setting cultural tastes, will be forced to evaluate what the future of their profession looks like and whether generative AI has a place in it. 
 
@@ -247,9 +242,9 @@ With any new groundbreaking technology comes a new set of ethical concerns and g
 
 # Statement of Work
 
-    * Kevin Borah (kborah@umich.edu) - Project management, Streamlit App development, Album artwork generation
-    * Carine Zhang (carinez@umich.edu) - GPT reviews generation and analysis
-    * Charith Tammineedi (charith@umich.edu) - Stable diffusion exploration, Report coordination
+* Kevin Borah (kborah@umich.edu) - Project management, Streamlit App development, Album artwork generation
+* Carine Zhang (carinez@umich.edu) - GPT reviews generation and analysis
+* Charith Tammineedi (charith@umich.edu) - Stable diffusion exploration, Report coordination
 
 
 # Appendix 
@@ -265,7 +260,7 @@ Since we didn’t have the resources to hire real human reviewers, we explored o
 st.image('images/figure_6.png',caption=None)
 
 st.markdown("""            
-**Figure 6. False Positive Rate for Baseline and Final Prompt
+**Figure 6. False Positive Rate for Baseline and Final Prompt**
 
 Our baseline prompt was:
 ```
