@@ -129,6 +129,6 @@ if create:
     else:
         st.error('please enter a valid band and album name')
 
-st.write("[![Star](<https://img.shields.io/github/stars/0-kbo/album-alchemy?style=social)](<https://img.shields.io/github/stars/0-kbo/album-alchemy?style=social)")
+"""[![Star](<https://img.shields.io/github/stars/0-kbo/album-alchemy?style=social)](<https://img.shields.io/github/stars/0-kbo/album-alchemy?style=social)"""
 
 
