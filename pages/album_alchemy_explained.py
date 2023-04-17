@@ -2,8 +2,6 @@ import streamlit as st
 
 st.set_page_config(page_title="how_we_did_it", page_icon=None)
 
-st.toc.generate()
-
 st.markdown(
 
 """
@@ -71,52 +69,52 @@ A randomized sample of 500 reviews from this dataset were used for this analysis
 Prompt engineering was a critical component of model tuning. We created a metric that measured how well our prompt was able to “activate” GPT’s more human-like writing style. The metric was defined as the false positive rate of GPT review, the percent of GPT reviews incorrectly labeled as the human written review. Without a human rater, we leveraged GPT’s self-evaluation capability to establish a benchmark for our prompt performance. We first masked the reviews as the Pitchfork review being “Review A” and the GPT-generated review being “Review B”. Then, we asked GPT to compare the two reviews and identify the human written review for the same Artist, Album, Score and Genre. We built the following custom template for this evaluation (“How to add a custom eval”):
 
 ```
-    You are comparing a model generated review and a human written review. Here are the reviews:
+You are comparing a model generated review and a human written review. Here are the reviews:
 
 
-    [BEGIN DATA]
+[BEGIN DATA]
 
 
-    ************
+************
 
 
-    [Review A]: {review_a}
+[Review A]: {review_a}
 
 
-    ************
+************
 
 
-    [Review B]: {review_b}
+[Review B]: {review_b}
 
 
-    ************
+************
 
 
-    [END DATA]
+[END DATA]
 
 
-    Compare the Review A and Review B, and determine which one is the human written review. Human written reviews are usually natural, smooth and logical.
+Compare the Review A and Review B, and determine which one is the human written review. Human written reviews are usually natural, smooth and logical.
 
 
-    First, write out in a step by step manner your reasoning to be sure that your conclusion is correct. 
+First, write out in a step by step manner your reasoning to be sure that your conclusion is correct. 
 
 
-    At the end, provide your conclusion in the format of "Conclusion: [Review A|Review B]".
+At the end, provide your conclusion in the format of "Conclusion: [Review A|Review B]".
 
 
-    Answer:
+Answer:
 ```
 
 We set the baseline using the simple prompt’s false positive rate and measured the improvement as we iterated on the prompt structure. The following prompt was finalized and input to GPT along with the album attributes (Artist, Album, Score and Genre) as inputs:
 
 ```
-    You are an agent to help generate human-like reviews for music albums
+You are an agent to help generate human-like reviews for music albums
 
-    Write a long and insightful music review for the music album '{album}' by {artist}. The music genre is {genre} with a rating of {score} out of 10. The review must meet the following criteria:
+Write a long and insightful music review for the music album '{album}' by {artist}. The music genre is {genre} with a rating of {score} out of 10. The review must meet the following criteria:
 
-    1. Written in a conversational tone, with sophisticated sentence structure and language.
-    2. Includes details about the band's history and the album's creation story
-    3. Includes personal experience and opinions
+1. Written in a conversational tone, with sophisticated sentence structure and language.
+2. Includes details about the band's history and the album's creation story
+3. Includes personal experience and opinions
 ```
 
 Here is one comparison of a real Pitchfork review and a GPT-generated review:
@@ -136,10 +134,10 @@ Album - The Early Years 1965-1972
 Source - GPT
 
 > "When it comes to Pink Floyd, it's hard not to be a little bit in awe of what they've accomplished. With over five decades in the music industry and over 250 million records sold, they're a band that has made an indelible mark on the rock genre. That's why I was particularly excited to listen to "The Early Years 1965-1972," a retrospective compilation that covers the formative years of the group.
-
-This album is an absolute treasure trove for any Pink Floyd fan, particularly those who are invested in the early days of the band. It's impressive to see how Pink Floyd evolved in just a few short years, transforming from a relatively straightforward blues-rock outfit to the avant-garde experimentalists that we all know and love. And let's not forget about the sheer quality of the music. Even during this early period, it's clear that Pink Floyd had a level of songwriting sophistication that was ahead of its time.
- 
-But before I dive into the music itself, let's talk a little bit about the band's history. Pink Floyd got its start in 1965, when guitarist Syd Barrett, bassist Roger Waters, drummer Nick Mason, and keyboardist Richard Wright started playing around the London music scene. The band's early years were marked by a series of singles and live shows, but it wasn't until 1967 that the band truly hit its stride with the release of "The Piper at the Gates of Dawn," an album that showcased Barrett's unique songwriting abilities and experimental sensibilities."
+> 
+> This album is an absolute treasure trove for any Pink Floyd fan, particularly those who are invested in the early days of the band. It's impressive to see how Pink Floyd evolved in just a few short years, transforming from a relatively straightforward blues-rock outfit to the avant-garde experimentalists that we all know and love. And let's not forget about the sheer quality of the music. Even during this early period, it's clear that Pink Floyd had a level of songwriting sophistication that was ahead of its time.
+> 
+> But before I dive into the music itself, let's talk a little bit about the band's history. Pink Floyd got its start in 1965, when guitarist Syd Barrett, bassist Roger Waters, drummer Nick Mason, and keyboardist Richard Wright started playing around the London music scene. The band's early years were marked by a series of singles and live shows, but it wasn't until 1967 that the band truly hit its stride with the release of "The Piper at the Gates of Dawn," an album that showcased Barrett's unique songwriting abilities and experimental sensibilities."
 
 
 """)
@@ -160,13 +158,13 @@ Overall, to our team’s eye, the reviews generated by GPT read very similarly t
 To generate album artwork, we prompted GPT again with some user-generated inputs (Artist, Album, Genre) along with the review generated in the previous step:
 
 ```
-    You are an agent to help generate creative descriptions of album artwork.
+You are an agent to help generate creative descriptions of album artwork.
 
-    Write a three sentence description of album artwork for the album '{album}' by {artist}. The band's music genre is {genre}. The description must meet the following criteria:
+Write a three sentence description of album artwork for the album '{album}' by {artist}. The band's music genre is {genre}. The description must meet the following criteria:
 
-    1. Your response must begin with 'Create an album cover'
-    2. Uses descriptive language to explain images present in the artwork.
-    3. Takes into account this recent album review for the band '{review}'
+1. Your response must begin with 'Create an album cover'
+2. Uses descriptive language to explain images present in the artwork.
+3. Takes into account this recent album review for the band '{review}'
 ```
 
 The generated output was then fed as input to DALL-E to, in turn, generate album artwork.  Though generated artwork had a difficult time displaying text appropriate to users’ input (see Figure 1), the creative value-add and documented difficulties in producing text on AI generated album covers (Dorobanțu) had our team comfortable including it in our final product.
@@ -187,6 +185,7 @@ st.image('images/figure_3.png',caption = None)
 st.markdown(
 
 """
+
 **Figure 3. Number of matches for different n-gram size**
 
 Figure 3 plots the number of matches (y) against different n-gram sizes (x). At a span of 2, there were many matches between GPT-generated reviews and real pitchfork reviews. The number of matches dropped sharply once we increased to a span of 3, and dropped to 0 matches at a span of 4 and beyond. 
@@ -207,6 +206,7 @@ st.image('images/figure_4.png',caption = None)
 
 st.markdown(
 """
+
 **Figure 4. Distribution of the cosine similarities between Pitchfork-review and GPT-generated review**
 
 Figure 4 shows the distribution of the cosine similarities between the real Pitchfork review and GPT-generated reviews. The similarities ranged between 0.80 and 0.98, with a median of 0.92. This score suggests that the GPT-generated reviews and the real Pitchfork reviews were highly similar in terms of content. Based on the memorization metric and cosine similarity score, the GPT model was able to output high-quality reviews that have similar contents to the real review, while not directly replicating the real one.
@@ -266,7 +266,7 @@ st.markdown("""
 
 Our baseline prompt was:
 ```
-    Write a short music review for the music album '{album}' by {artist}. The music genre is {genre} with a rating of {score} out of 10.
+Write a short music review for the music album '{album}' by {artist}. The music genre is {genre} with a rating of {score} out of 10.
 ```
 
 The evaluation model was always able to detect the GPT-generated review was _not _the human written review. Whereas, our fine-tuned prompt was able to trick the evaluation model 53% of the times, slightly better than random guessing. 
