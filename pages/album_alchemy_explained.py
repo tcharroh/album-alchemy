@@ -239,10 +239,10 @@ At the outset of this journey, our team set out to leverage existing large langu
 3. Using GPT and Dall-E 2 to generate album artwork
 4. Using prompt engineering instead of fine-tuning to generate reviews more similar to real reviews 
 
-There are still many interesting work that could be done for our projects:
+There are still many interesting routes future work can take:
 
-1. Our current fine-tuned prompt has a false positive rate of 53%, which means it is able to trick the rater to believe it is written by a human 53% of the time. We can continue to explore more sophisticated prompts that could “activate” GPT’s more human-like writing style.
-2. Our memorization metric only compared the n-gram overlaps between the GPT-generated review and the human written Pitchfork review of the same Artist, Album, Score and Genre. We can extend the evaluation to GPT-generated reviews against all Pitchfork reviews.
+1. Our current fine-tuned prompt has a false positive rate of 53%, which means it is able to trick the rater to believe it is written by a human 53% of the time. We can continue to explore more sophisticated prompts that could “activate” GPT’s more human-like and Pitchfork-like writing styles.
+2. Our memorization metric only compared the n-gram overlaps between the GPT-generated review and the human written Pitchfork review of the same Artist, Album, Score and Genre. Future work can extend the evaluation to comparing the text of GPT-generated reviews of fictional albums against all Pitchfork reviews assumed to be in the training data.
 
 Though we don’t anticipate our project to send ripples into the musical criticism industry, we have demonstrated that GPT has the potential to write reviews that are indistinguishable from human written reviews and acknowledge the far-reaching impacts of such a reality.  The music industry will be forced to reckon with such far-reaching impact.  Everything from song writing, composition and album artwork has the potential to be disrupted in a significant way. Music critics, who also play a critical role in setting cultural tastes, will be forced to evaluate what the future of their profession looks like and whether generative AI has a place in it. 
 
