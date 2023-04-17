@@ -2,6 +2,8 @@ import streamlit as st
 
 st.set_page_config(page_title="how_we_did_it", page_icon=None)
 
+st.write("[![Star](<https://img.shields.io/github/stars/>0-kbo/album-alchemy.svg?logo=github&style=social)](<https://gitHub.com/>0-kbo/album-alchemy)")
+
 st.markdown(
 
 """
