@@ -10,7 +10,7 @@ st.markdown(
 # Project statement
 """)
 
-st.write("[![Star](<https://img.shields.io/github/stars/>0-kbo/album-alchemy/tree/main.svg?logo=github&style=social)](<https://gitHub.com/>0-kbo/album-alchemy/tree/main)")
+st.write("[![Star](<https://img.shields.io/github/stars/0-kbo/album-alchemy?style=social)](<https://img.shields.io/github/stars/0-kbo/album-alchemy?style=social)")
 
 st.markdown("""
 >“Strictly considered, writing about music is as illogical as singing about economics. All the other arts can be talked about in the terms of ordinary life and experience. A poem, a statue, a painting or a play is a representation of somebody or something, and can be measurably described (the purely aesthetic values aside) by describing what it represents.” (K 63)
