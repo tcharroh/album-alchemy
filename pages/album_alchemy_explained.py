@@ -15,7 +15,7 @@ st.write("[![Star](https://img.shields.io/github/stars/0-kbo/album-alchemy?style
 st.markdown("""
 >“Strictly considered, writing about music is as illogical as singing about economics. All the other arts can be talked about in the terms of ordinary life and experience. A poem, a statue, a painting or a play is a representation of somebody or something, and can be measurably described (the purely aesthetic values aside) by describing what it represents.” (K 63)
 
-Though people have been writing about music since Plato, the practice of musical criticism, as we have come to know it emerged in the late eighteenth and early nineteenth centuries. (Kivy 247) With the arrival of the internet roughly two-hundred years later, musical criticisms moved online to personal websites and blogs. By the early 2000s, one such musical criticism website, Pitchfork, had amassed a large following and increased cultural currency.
+Though people have been writing about music since Plato, the practice of musical criticism, as we have come to know it emerged in the late eighteenth and early nineteenth centuries (Kivy 247). With the arrival of the internet roughly two-hundred years later, musical criticisms moved online to personal websites and blogs. By the early 2000s, one such musical criticism website, Pitchfork, had amassed a large following and increased cultural currency.
 
 Though musical criticisms can be fun to read and may shed light on influences and cultural context, they can also be filled with over-the-top, artistically pretentious language that attempts to make objective statements on what is ultimately a subjective issue. 
 
@@ -203,8 +203,10 @@ We then used cosine similarity to evaluate how similar are two documents in term
 
 We calculated the cosine similarity of 500 Pitchfork reviews and 500 GPT generated reviews for the same Album, Artist, Genre and Rating. Using the _[openai.embeddings_utils](https://github.com/openai/openai-python/blob/main/openai/embeddings_utils.py) _module, we converted reviews to multidimensional vectors, and estimated the cosine similarity between them using the following formula: 
 
-Similarity = Cos (theta) = (A . B) / (||A|| ||B||)
-""")
+Similarity""")  st.latex(r''' \begin{equation}
+\cos ({\bf t},{\bf e})= {{\bf t} {\bf e} \over \|{\bf t}\| \|{\bf e}\|} = \frac{ \sum_{i=1}^{n}{{\bf t}_i{\bf e}_i} }{ \sqrt{\sum_{i=1}^{n}{({\bf t}_i)^2}} \sqrt{\sum_{i=1}^{n}{({\bf e}_i)^2}} }
+\end{equation} ''')
+
 
 st.image('images/figure_4.png',caption = None)
 
