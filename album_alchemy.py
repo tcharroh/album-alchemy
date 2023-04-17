@@ -12,8 +12,8 @@ st.set_page_config(page_title="album alchemy", page_icon=None)
 st.sidebar.title('')
 
 st.title('welcome to album alchemy')
-st.markdown("here you will find a pitchfork-like album review and album artwork generator.") 
-st.markdown("all we need from you is your band name, your band's genre, and a score for the album.")
+st.markdown("here you will find a pitchfork-like album review and artwork generator.") 
+st.markdown("all we need from you is your band's name, your album's name, your album's genre, and a score for the album.")
 st.markdown('we will take care of the rest.')
 st.markdown('ready to get started?')
 
@@ -131,6 +131,6 @@ if create:
 
 st.write("[![Star](https://img.shields.io/github/stars/0-kbo/album-alchemy?style=social)](https://github.com/0-kbo/album-alchemy/tree/main)")
 
-# """[![Star](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://gitHub.com/devangdayal/Medium)"""
+
 
 
