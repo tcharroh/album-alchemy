@@ -64,7 +64,7 @@ To run our version of the Streamlit app, click [here](https://0-kbo-album-alchem
 If you want to run your own local version, run command
 
 ```
-streamlit run capstone_app.py
+streamlit run album_alchemy.py
 ```
 
 And if you want to deploy your own version, follow these [instructions](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app)
