@@ -37,7 +37,7 @@ st.markdown(
 
 # How We Did It
 
-GPT-3.5, or Generative Pre-trained Transformer 3.5 (Brown), is a language model developed by OpenAI. GPT-3.5 (Hereinafter referred to as GPT) It is a neural network that has been trained on a diverse and enormous amount of text data from the internet, and has the advantage of generating high-quality text with limited resources.
+GPT-3.5, or Generative Pre-trained Transformer 3.5 (Brown), is a language model developed by OpenAI. GPT-3.5 (Hereinafter referred to as GPT) is a neural network that has been trained on a diverse and enormous amount of text data from the internet, and has the advantage of generating high-quality text with limited resources.
 
 For review generation, we used GPT as both a review generation model and prompt-tuning evaluation model. Using the fine-tuned prompts, the model was able to generate human-like Pitchfork-style reviews given the following limited inputs:
 
